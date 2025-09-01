@@ -1,36 +1,194 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Librería de Componentes - Next.js + Tailwind CSS + Storybook
 
-## Getting Started
+Una librería de componentes moderna y reutilizable construida con Next.js, TypeScript, Tailwind CSS y Storybook.
 
-First, run the development server:
+## 🚀 Características
 
+- **Next.js 14** con App Router
+- **TypeScript** para type safety
+- **Tailwind CSS** para estilos
+- **Storybook** para documentación y desarrollo de componentes
+- **Componentes accesibles** siguiendo las mejores prácticas
+- **Totalmente personalizable** con clases de Tailwind
+- **Responsive design** out of the box
+
+## 📦 Componentes Disponibles
+
+### Button
+- Múltiples variantes: `primary`, `secondary`, `outline`, `ghost`
+- Diferentes tamaños: `sm`, `md`, `lg`
+- Estados: normal, deshabilitado
+- Soporte para iconos
+
+### Card
+- Componente modular con `CardHeader`, `CardContent`, `CardFooter`
+- Diseño flexible y responsive
+- Fácil personalización
+
+### Input
+- Múltiples tipos: `text`, `email`, `password`, `number`, `tel`, `url`
+- Estados: normal, con error, deshabilitado, requerido
+- Validación integrada
+
+## 🛠️ Instalación
+
+1. Clona el repositorio:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone <tu-repositorio>
+cd storybook
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Instala las dependencias:
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Ejecuta el servidor de desarrollo:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Abre [http://localhost:3000](http://localhost:3000) en tu navegador.
 
-## Learn More
+## 📚 Storybook
 
-To learn more about Next.js, take a look at the following resources:
+Para ver la documentación interactiva de los componentes:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run storybook
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Esto abrirá Storybook en [http://localhost:6006](http://localhost:6006).
 
-## Deploy on Vercel
+## 🎨 Uso de Componentes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Importación
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```tsx
+import { Button, Card, CardHeader, CardContent, CardFooter, Input } from '@/components/ui';
+```
+
+### Ejemplos de Uso
+
+#### Button
+```tsx
+// Botón primario
+<Button variant="primary">Click me</Button>
+
+// Botón con icono
+<Button variant="outline">
+  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+  </svg>
+  Agregar
+</Button>
+
+// Botón deshabilitado
+<Button disabled>No disponible</Button>
+```
+
+#### Card
+```tsx
+<Card className="w-[350px]">
+  <CardHeader>
+    <h3 className="text-lg font-semibold">Título</h3>
+    <p className="text-sm text-gray-500">Descripción</p>
+  </CardHeader>
+  <CardContent>
+    <p>Contenido de la tarjeta</p>
+  </CardContent>
+  <CardFooter>
+    <Button variant="primary">Acción</Button>
+  </CardFooter>
+</Card>
+```
+
+#### Input
+```tsx
+// Input básico
+<Input placeholder="Escribe algo..." />
+
+// Input con error
+<Input placeholder="Campo con error" error />
+
+// Input deshabilitado
+<Input value="No editable" disabled />
+
+// Input requerido
+<Input placeholder="Campo requerido" required />
+```
+
+## 🎯 Personalización
+
+Todos los componentes aceptan una prop `className` para personalización adicional:
+
+```tsx
+<Button 
+  variant="primary" 
+  className="bg-red-500 hover:bg-red-600 text-white"
+>
+  Botón Personalizado
+</Button>
+```
+
+## 🧪 Testing
+
+El proyecto incluye configuración para testing con Vitest:
+
+```bash
+# Ejecutar tests
+npm test
+
+# Ejecutar tests en modo watch
+npm run test:watch
+
+# Generar reporte de cobertura
+npm run test:coverage
+```
+
+## 📁 Estructura del Proyecto
+
+```
+src/
+├── app/                 # Next.js App Router
+├── components/
+│   └── ui/             # Componentes de la librería
+│       ├── Button.tsx
+│       ├── Button.stories.tsx
+│       ├── Card.tsx
+│       ├── Card.stories.tsx
+│       ├── Input.tsx
+│       ├── Input.stories.tsx
+│       └── index.ts    # Exportaciones
+└── styles/             # Estilos globales
+```
+
+## 🔧 Scripts Disponibles
+
+- `npm run dev` - Servidor de desarrollo Next.js
+- `npm run build` - Build de producción
+- `npm run start` - Servidor de producción
+- `npm run storybook` - Iniciar Storybook
+- `npm run build-storybook` - Build de Storybook
+- `npm test` - Ejecutar tests
+- `npm run lint` - Ejecutar ESLint
+
+## 🤝 Contribución
+
+1. Fork el proyecto
+2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
+3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+4. Push a la rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+
+## 🆘 Soporte
+
+Si tienes alguna pregunta o problema, por favor abre un issue en el repositorio.
+
+---
+
+Desarrollado con ❤️ usando Next.js, TypeScript, Tailwind CSS y Storybook.
