@@ -1,97 +1,67 @@
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
-import Button from './Button';
+import { ToggleButton } from 'primereact/togglebutton';
 
-const meta: Meta<typeof Button> = {
-  title: 'UI/Button',
-  component: Button,
+interface  Props {
+  checked: boolean;
+  onIcon: string;
+  offIcon: string;
+}
+
+const meta: Meta<typeof ToggleButton> = {
+  title: 'UI/ToggleButton',
+  component: ToggleButton,
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '100vh',
+          background: '#f3f4f6',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
-    layout: 'centered',
-  },
-  tags: ['autodocs'],
-  argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'outline', 'ghost'],
-    },
-    size: {
-      control: { type: 'select' },
-      options: ['sm', 'md', 'lg'],
-    },
-    disabled: {
-      control: { type: 'boolean' },
+    docs: {
+      description: {
+        component: 'Componente ToggleButton de PrimeReact con estado invalid.',
+      },
+      source: {
+        type: 'dynamic',
+      },
     },
   },
 };
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof ToggleButton>;
 
-export const Primary: Story = {
+// Historia por defecto usando args
+export const Default: Story = {
   args: {
-    children: 'Botón Primario',
-    variant: 'primary',
+    checked: false,
+    onIcon: 'pi pi-check',
+    offIcon: 'pi pi-times',
   },
-};
-
-export const Secondary: Story = {
-  args: {
-    children: 'Botón Secundario',
-    variant: 'secondary',
+  render: (args) => {
+    // Componente inline que maneja el estado local
+    const Wrapper = () => {
+      const [checked, setChecked] = useState(args.checked);
+      return (
+        <ToggleButton
+          {...args}
+          checked={checked}
+          onChange={(e) => setChecked(e.value)}
+          invalid
+          className="w-8rem"
+        />
+      );
+    };
+    return <Wrapper />;
   },
-};
-
-export const Outline: Story = {
-  args: {
-    children: 'Botón Outline',
-    variant: 'outline',
-  },
-};
-
-export const Ghost: Story = {
-  args: {
-    children: 'Botón Ghost',
-    variant: 'ghost',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    children: 'Botón Pequeño',
-    size: 'sm',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    children: 'Botón Grande',
-    size: 'lg',
-  },
-};
-
-export const Disabled: Story = {
-  args: {
-    children: 'Botón Deshabilitado',
-    disabled: true,
-  },
-};
-
-export const AllVariants: Story = {
-  render: () => (
-    <div className="flex flex-wrap gap-4">
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="ghost">Ghost</Button>
-    </div>
-  ),
-};
-
-export const AllSizes: Story = {
-  render: () => (
-    <div className="flex items-center gap-4">
-      <Button size="sm">Small</Button>
-      <Button size="md">Medium</Button>
-      <Button size="lg">Large</Button>
-    </div>
-  ),
 };

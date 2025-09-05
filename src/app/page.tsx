@@ -1,4 +1,5 @@
-import { Button, Card, CardHeader, CardContent, CardFooter, Input } from '@/components/ui';
+import { Button, Card, CardHeader, CardContent, CardFooter, Input, } from '@/components/ui';
+
 
 export default function Home() {
   return (
@@ -86,8 +87,10 @@ export default function Home() {
                   Esta es una tarjeta simple que muestra información básica.
                 </p>
               </CardContent>
-            </Card>
-
+              
+              
+              </Card>
+           
             <Card>
               <CardHeader>
                 <h3 className="text-lg font-semibold">Con Acciones</h3>
