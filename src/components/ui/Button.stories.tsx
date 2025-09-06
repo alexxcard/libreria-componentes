@@ -1,12 +1,6 @@
 import React, { useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { ToggleButton } from 'primereact/togglebutton';
-
-interface  Props {
-  checked: boolean;
-  onIcon: string;
-  offIcon: string;
-}
 
 const meta: Meta<typeof ToggleButton> = {
   title: 'UI/ToggleButton',

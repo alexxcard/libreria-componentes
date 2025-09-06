@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import GroupedDemo from './GroupedDemo';
 
 const meta: Meta<typeof GroupedDemo> = {

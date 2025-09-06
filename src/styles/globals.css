@@ -1,0 +1,8 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+/* Aquí puedes añadir estilos globales personalizados */
+html, body {
+  height: 100%;
+  font-family: system-ui, sans-serif;
+}

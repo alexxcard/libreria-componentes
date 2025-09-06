@@ -1,20 +1,23 @@
-import type { Preview } from '@storybook/nextjs-vite'
+// .storybook/preview.ts
+import type { Preview } from "@storybook/nextjs-vite";
+
+// 👇 importa tus estilos globales
+import "../src/styles/globals.css"; // tu Tailwind
+import "primereact/resources/themes/lara-light-blue/theme.css"; // tema PrimeReact
+import "primereact/resources/primereact.min.css"; // core de PrimeReact
+import "primeicons/primeicons.css"; // íconos de PrimeReact
 
 const preview: Preview = {
   parameters: {
     controls: {
       matchers: {
-       color: /(background|color)$/i,
-       date: /Date$/i,
+        color: /(background|color)$/i,
+        date: /Date$/i,
       },
     },
-
     a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo'
-    }
+      test: "todo",
+    },
   },
 };
 

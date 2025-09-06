@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import MeterDemo from './PasswordDemo';
 
 const meta: Meta<typeof MeterDemo> = {
@@ -11,6 +11,7 @@ const meta: Meta<typeof MeterDemo> = {
 };
 
 export default meta;
+
 type Story = StoryObj<typeof meta>;
 
 // Story por defecto

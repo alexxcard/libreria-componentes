@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import MultipleDemo from "./SelectButton";
 
 const meta: Meta<typeof MultipleDemo> = {
