@@ -8,24 +8,28 @@ interface PasswordDemoProps {
 
 export default function PasswordDemo({
   placeholder = "Escribe tu contraseña",
-  width = "md",
+  width = "lg",
 }: PasswordDemoProps) {
   const [value, setValue] = useState("");
 
-  // Mapear el tamaño a clases de Tailwind
   const widthClass =
     width === "sm" ? "w-40" : width === "lg" ? "w-80" : "w-60";
 
   return (
-    <div className="card flex justify-center p-6">
       <Password
         value={value}
         onChange={(e) => setValue(e.target.value)}
         toggleMask
         feedback
         placeholder={placeholder}
-        className={widthClass}
+        className={`${widthClass}`}
+        inputClassName="w-full"
+        panelClassName=" text-black font-bold text-center border border-[#7B8F90] rounded-xl p-2"
+        weakLabel="Débil"
+        mediumLabel="Media"
+        strongLabel="Fuerte"
+        promptLabel="Ingrese" 
       />
-    </div>
+   
   );
 }
