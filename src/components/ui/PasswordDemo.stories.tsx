@@ -16,14 +16,16 @@ type Story = StoryObj<typeof meta>;
 
 // Story por defecto
 export const Default: Story = {
-  args: {},
+  args: {
+    width: "lg"
+  },
 };
 
 // Story con placeholder personalizado
 export const WithPlaceholder: Story = {
   render: () => (
     <div className="p-6 w-full md:w-96">
-      <MeterDemo />
+            <MeterDemo />
     </div>
   ),
 };

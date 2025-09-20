@@ -21,14 +21,14 @@ export default function PasswordDemo({
         onChange={(e) => setValue(e.target.value)}
         toggleMask
         feedback
-        placeholder={placeholder}
+        placeholder= {placeholder} height={placeholder}
         className={`${widthClass}`}
         inputClassName="w-full"
         panelClassName=" text-black font-bold text-center border border-[#7B8F90] rounded-xl p-2"
         weakLabel="Débil"
         mediumLabel="Media"
         strongLabel="Fuerte"
-        promptLabel="Ingrese" 
+        promptLabel="Ingrese su contraseña" 
       />
    
   );

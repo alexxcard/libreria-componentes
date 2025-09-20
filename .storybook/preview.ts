@@ -3,9 +3,11 @@ import type { Preview } from "@storybook/nextjs-vite";
 
 // 👇 importa tus estilos globales
 import "../src/styles/globals.css"; // tu Tailwind
-import "primereact/resources/themes/lara-light-blue/theme.css"; // tema PrimeReact
-import "primereact/resources/primereact.min.css"; // core de PrimeReact
-import "primeicons/primeicons.css"; // íconos de PrimeReact
+import 'primereact/resources/themes/lara-light-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+import 'primeflex/primeflex.css';
+
 
 const preview: Preview = {
   parameters: {
